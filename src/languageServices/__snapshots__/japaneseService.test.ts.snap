@@ -1,0 +1,493 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JapaneseService searchByEnglish 1`] = `
+Array [
+  Object {
+    "definitions": Array [
+      "house",
+      "residence",
+      "dwelling",
+      "family",
+      "household",
+      "lineage",
+      "family name",
+    ],
+    "meta": Object {
+      "reading": "いえ",
+    },
+    "word": "家",
+  },
+  Object {
+    "definitions": Array [
+      "house",
+      "building",
+      "House",
+    ],
+    "meta": Object {
+      "reading": "かおく",
+    },
+    "word": "家屋",
+  },
+  Object {
+    "definitions": Array [
+      "house",
+      "home (one's own)",
+      "(one's) family",
+      "(one's) household",
+      "Uchi",
+    ],
+    "meta": Object {
+      "reading": "うち",
+    },
+    "word": "家",
+  },
+  Object {
+    "definitions": Array [
+      "house",
+      "home",
+      "one's husband",
+    ],
+    "meta": Object {
+      "reading": "たく",
+    },
+    "word": "宅",
+  },
+  Object {
+    "definitions": Array [
+      "dwelling",
+      "house",
+      "residence",
+      "address",
+    ],
+    "meta": Object {
+      "reading": "すまい",
+    },
+    "word": "住まい",
+  },
+  Object {
+    "definitions": Array [
+      "house",
+      "dwelling",
+      "human habitation",
+    ],
+    "meta": Object {
+      "reading": "じんか",
+    },
+    "word": "人家",
+  },
+  Object {
+    "definitions": Array [
+      "lodging",
+      "inn",
+      "hotel",
+      "house",
+      "home",
+      "dwelling",
+      "home of a servant's parents (or guarantor, etc.)",
+    ],
+    "meta": Object {
+      "reading": "やど",
+    },
+    "word": "宿",
+  },
+  Object {
+    "definitions": Array [
+      "House of Councillors (upper house of the National Diet of Japan)",
+      "House of Councillors",
+    ],
+    "meta": Object {
+      "reading": "さんぎいん",
+    },
+    "word": "参議院",
+  },
+  Object {
+    "definitions": Array [
+      "House of Representatives (lower house of the National Diet of Japan)",
+      "House of Representatives of Japan",
+    ],
+    "meta": Object {
+      "reading": "しゅうぎいん",
+    },
+    "word": "衆議院",
+  },
+  Object {
+    "definitions": Array [
+      "house",
+      "hall",
+      "building",
+    ],
+    "meta": Object {
+      "reading": "かん",
+    },
+    "word": "館",
+  },
+  Object {
+    "definitions": Array [
+      "house",
+      "plastic greenhouse",
+      "house music",
+      "go to your kennel (cage, bed, etc.)!",
+    ],
+    "meta": Object {
+      "reading": "ハウス",
+    },
+    "word": undefined,
+  },
+  Object {
+    "definitions": Array [
+      "tribe",
+      "clan",
+      "house",
+      "Tribe",
+    ],
+    "meta": Object {
+      "reading": "ぶぞく",
+    },
+    "word": "部族",
+  },
+  Object {
+    "definitions": Array [
+      "a family",
+      "a household",
+      "a home",
+      "one's family",
+      "whole family",
+      "(one's own) style",
+      "school",
+      "gang",
+      "(yazuka) family",
+    ],
+    "meta": Object {
+      "reading": "いっか",
+    },
+    "word": "一家",
+  },
+  Object {
+    "definitions": Array [
+      "house for rent",
+      "rented house",
+      "renting a house",
+    ],
+    "meta": Object {
+      "reading": "しゃくや",
+    },
+    "word": "借家",
+  },
+  Object {
+    "definitions": Array [
+      "your house",
+      "your home",
+      "your family",
+      "your husband",
+      "your organization",
+      "you",
+    ],
+    "meta": Object {
+      "reading": "おたく",
+    },
+    "word": "お宅",
+  },
+  Object {
+    "definitions": Array [
+      "house (e.g. of Tokugawa)",
+      "family",
+    ],
+    "meta": Object {
+      "reading": "け",
+    },
+    "word": "家",
+  },
+  Object {
+    "definitions": Array [
+      "house for rent",
+    ],
+    "meta": Object {
+      "reading": "かしや",
+    },
+    "word": "貸家",
+  },
+  Object {
+    "definitions": Array [
+      "house number",
+      "address",
+    ],
+    "meta": Object {
+      "reading": "ばんち",
+    },
+    "word": "番地",
+  },
+  Object {
+    "definitions": Array [
+      "holiday house",
+      "vacation home",
+      "villa",
+      "prison",
+      "jail",
+    ],
+    "meta": Object {
+      "reading": "べっそう",
+    },
+    "word": "別荘",
+  },
+  Object {
+    "definitions": Array [
+      "full house",
+      "no vacancy",
+      "sold out",
+      "standing room only",
+      "full (of people)",
+      "crowded",
+    ],
+    "meta": Object {
+      "reading": "まんいん",
+    },
+    "word": "満員",
+  },
+]
+`;
+
+exports[`JapaneseService searchByJapanese 1`] = `
+Array [
+  Object {
+    "definitions": Array [
+      "house",
+      "residence",
+      "dwelling",
+      "family",
+      "household",
+      "lineage",
+      "family name",
+    ],
+    "meta": Object {
+      "reading": "いえ",
+    },
+    "word": "家",
+  },
+  Object {
+    "definitions": Array [
+      "house",
+      "building",
+      "House",
+    ],
+    "meta": Object {
+      "reading": "かおく",
+    },
+    "word": "家屋",
+  },
+  Object {
+    "definitions": Array [
+      "house",
+      "home (one's own)",
+      "(one's) family",
+      "(one's) household",
+      "Uchi",
+    ],
+    "meta": Object {
+      "reading": "うち",
+    },
+    "word": "家",
+  },
+  Object {
+    "definitions": Array [
+      "house",
+      "home",
+      "one's husband",
+    ],
+    "meta": Object {
+      "reading": "たく",
+    },
+    "word": "宅",
+  },
+  Object {
+    "definitions": Array [
+      "dwelling",
+      "house",
+      "residence",
+      "address",
+    ],
+    "meta": Object {
+      "reading": "すまい",
+    },
+    "word": "住まい",
+  },
+  Object {
+    "definitions": Array [
+      "house",
+      "dwelling",
+      "human habitation",
+    ],
+    "meta": Object {
+      "reading": "じんか",
+    },
+    "word": "人家",
+  },
+  Object {
+    "definitions": Array [
+      "lodging",
+      "inn",
+      "hotel",
+      "house",
+      "home",
+      "dwelling",
+      "home of a servant's parents (or guarantor, etc.)",
+    ],
+    "meta": Object {
+      "reading": "やど",
+    },
+    "word": "宿",
+  },
+  Object {
+    "definitions": Array [
+      "House of Councillors (upper house of the National Diet of Japan)",
+      "House of Councillors",
+    ],
+    "meta": Object {
+      "reading": "さんぎいん",
+    },
+    "word": "参議院",
+  },
+  Object {
+    "definitions": Array [
+      "House of Representatives (lower house of the National Diet of Japan)",
+      "House of Representatives of Japan",
+    ],
+    "meta": Object {
+      "reading": "しゅうぎいん",
+    },
+    "word": "衆議院",
+  },
+  Object {
+    "definitions": Array [
+      "house",
+      "hall",
+      "building",
+    ],
+    "meta": Object {
+      "reading": "かん",
+    },
+    "word": "館",
+  },
+  Object {
+    "definitions": Array [
+      "house",
+      "plastic greenhouse",
+      "house music",
+      "go to your kennel (cage, bed, etc.)!",
+    ],
+    "meta": Object {
+      "reading": "ハウス",
+    },
+    "word": undefined,
+  },
+  Object {
+    "definitions": Array [
+      "tribe",
+      "clan",
+      "house",
+      "Tribe",
+    ],
+    "meta": Object {
+      "reading": "ぶぞく",
+    },
+    "word": "部族",
+  },
+  Object {
+    "definitions": Array [
+      "a family",
+      "a household",
+      "a home",
+      "one's family",
+      "whole family",
+      "(one's own) style",
+      "school",
+      "gang",
+      "(yazuka) family",
+    ],
+    "meta": Object {
+      "reading": "いっか",
+    },
+    "word": "一家",
+  },
+  Object {
+    "definitions": Array [
+      "house for rent",
+      "rented house",
+      "renting a house",
+    ],
+    "meta": Object {
+      "reading": "しゃくや",
+    },
+    "word": "借家",
+  },
+  Object {
+    "definitions": Array [
+      "your house",
+      "your home",
+      "your family",
+      "your husband",
+      "your organization",
+      "you",
+    ],
+    "meta": Object {
+      "reading": "おたく",
+    },
+    "word": "お宅",
+  },
+  Object {
+    "definitions": Array [
+      "house (e.g. of Tokugawa)",
+      "family",
+    ],
+    "meta": Object {
+      "reading": "け",
+    },
+    "word": "家",
+  },
+  Object {
+    "definitions": Array [
+      "house for rent",
+    ],
+    "meta": Object {
+      "reading": "かしや",
+    },
+    "word": "貸家",
+  },
+  Object {
+    "definitions": Array [
+      "house number",
+      "address",
+    ],
+    "meta": Object {
+      "reading": "ばんち",
+    },
+    "word": "番地",
+  },
+  Object {
+    "definitions": Array [
+      "holiday house",
+      "vacation home",
+      "villa",
+      "prison",
+      "jail",
+    ],
+    "meta": Object {
+      "reading": "べっそう",
+    },
+    "word": "別荘",
+  },
+  Object {
+    "definitions": Array [
+      "full house",
+      "no vacancy",
+      "sold out",
+      "standing room only",
+      "full (of people)",
+      "crowded",
+    ],
+    "meta": Object {
+      "reading": "まんいん",
+    },
+    "word": "満員",
+  },
+]
+`;
