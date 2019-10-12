@@ -1,12 +1,12 @@
 import * as React from "react"
 import * as ReactDOM from "react-dom"
 import { Router, Route, Switch } from "react-router-dom"
+import { history } from "config/history"
 import { routes } from "config/routes"
 import { Layout } from "pages/layout"
-import { history } from "services/history"
 import "./main.css"
 
-class Main extends React.Component<{ user: {} | undefined }> {
+class Main extends React.Component<{}> {
   render() {
     return (
       <Layout>
