@@ -5,16 +5,44 @@ export const enum STATE {
   ADDING_ARGUMENTS = 2,
   EXECUTING_COMMAND = 3,
   EXECUTED_COMMAND = 4,
+  ERROR_EXECUTING_COMMAND = 5,
+}
+
+export type Params = { [key: string]: string }
+
+export type EditingQuery = {
+  type: STATE.EDITING_QUERY
+  query: string
+  commands: Command[]
+}
+
+export type AddingArguments = {
+  type: STATE.ADDING_ARGUMENTS
+  command: Command
+  params: Params
+}
+
+export type ExecutingCommand = {
+  type: STATE.EXECUTING_COMMAND
+  command: Command
+  params: Params
+}
+
+export type ExecutedCommand = {
+  type: STATE.EXECUTED_COMMAND
+  message?: string
+}
+
+export type ErrorExecutingCommand = {
+  type: STATE.ERROR_EXECUTING_COMMAND
+  message?: string
 }
 
 export type ComponentState =
-  | { type: STATE.EDITING_QUERY; query: string; commands: Command[] }
-  | {
-      type: STATE.ADDING_ARGUMENTS
-      command: Command
-      params: { [key: string]: string }
-    }
-  | { type: STATE.EXECUTING_COMMAND; command: Command }
-  | { type: STATE.EXECUTED_COMMAND; message?: string }
+  | EditingQuery
+  | AddingArguments
+  | ExecutingCommand
+  | ExecutedCommand
+  | ErrorExecutingCommand
 
 export type SetState = (state: ComponentState) => void

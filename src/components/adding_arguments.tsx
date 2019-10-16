@@ -38,21 +38,21 @@ export const AddingArguments = ({
             <Input
               value={params[key]}
               onChange={e => {
-                const newParams = {
-                  ...params,
-                  [key]: e.target.value,
-                }
-                setState({
-                  type: STATE.ADDING_ARGUMENTS,
-                  command,
-                  params: newParams,
-                })
+                const p = { ...params, [key]: e.target.value }
+                setState({ type: STATE.ADDING_ARGUMENTS, command, params: p })
               }}
             />
           </div>
         )
       })}
-      <button type="button" onClick={() => {}}>Evaluate</button>
+      <button
+        type="button"
+        onClick={async () => {
+          setState({ type: STATE.EXECUTING_COMMAND, command, params })
+        }}
+      >
+        Evaluate
+      </button>
     </>
   )
 }
