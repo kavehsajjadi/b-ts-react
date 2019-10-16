@@ -1,54 +1,67 @@
 import * as React from "react"
-import { Command, commands } from "lib/commands"
-import { ComponentState, SetState, STATE } from "lib/states"
-import { getArgs } from "lib/get_arguments"
-import { evaluate } from "lib/evaluate"
-import { Editing } from "components/editing"
-import { AddingArguments } from "components/adding_arguments"
-import { ExecutingCommand } from "components/executing_command"
-import { ExecutedCommand } from "components/executed_command"
-import { ErrorExecutingCommand } from "components/error_executing_command"
-
-const initialCommand: Command = ["", () => undefined]
-
-const initialMode: ComponentState = {
-  type: STATE.EDITING_QUERY,
-  query: "",
-  commands: [],
-  //type: STATE.ADDING_ARGUMENTS,
-  //command: ["change password :password", console.log],
-  //params: {},
-}
+import { commands } from "lib/commands"
+import { ComponentState, STATE } from "lib/states"
+import { CommandInput } from "components/command_input"
 
 export const Home = () => {
-  const [command, setCommand] = React.useState(initialCommand)
-  const [query, setQuery] = React.useState<string>("")
-  const [state, setState] = React.useState<ComponentState>(initialMode)
-  const parts = getArgs(command)
-  const updateState = (state: ComponentState) => setState(state)
-
-  switch (state.type) {
-    case STATE.EDITING_QUERY:
-      return <Editing state={state} setState={updateState} />
-    case STATE.ADDING_ARGUMENTS:
-      return <AddingArguments state={state} setState={updateState} />
-    case STATE.EXECUTING_COMMAND:
-      return <ExecutingCommand state={state} setState={updateState} />
-    case STATE.EXECUTED_COMMAND:
-      return <ExecutedCommand state={state} setState={updateState} />
-    case STATE.ERROR_EXECUTING_COMMAND:
-      return <ErrorExecutingCommand state={state} setState={updateState} />
-    default:
-      throw new Error(`Define a case for state: ${state}`)
-  }
+  return (
+    <div>
+      <Card>
+        <Title>Editing</Title>
+        <CommandInput initialState={states.editing} />
+      </Card>
+      <Card>
+        <Title>Adding Arguments</Title>
+        <CommandInput initialState={states.addingArguments} />
+      </Card>
+      <Card>
+        <Title>Executing Command</Title>
+        <CommandInput initialState={states.executingCommand} />
+      </Card>
+      <Card>
+        <Title>Executed Command</Title>
+        <CommandInput initialState={states.executedCommand} />
+      </Card>
+      <Card>
+        <Title>Error Executing Command</Title>
+        <CommandInput initialState={states.errorExecutingCommand} />
+      </Card>
+    </div>
+  )
 }
 
-const ArgumentFields = ({ values }) => (
-  <div>
-    {values.map(value => (
-      <div key={value}>
-        <input type="text" value={value} />
-      </div>
-    ))}
+const Card = ({ children }: { children: React.ReactNode }) => (
+  <div className="card">
+    <div className="card-body">{children}</div>
   </div>
 )
+
+const Title = ({ children }: { children: React.ReactNode }) => (
+  <div className="card-title">{children}</div>
+)
+
+const states: { [key: string]: ComponentState } = {
+  editing: {
+    type: STATE.EDITING_QUERY,
+    query: "",
+    commands: [],
+  },
+  addingArguments: {
+    type: STATE.ADDING_ARGUMENTS,
+    command: commands[0],
+    params: { password: "", user: "" },
+  },
+  executingCommand: {
+    type: STATE.EXECUTING_COMMAND,
+    command: commands[0],
+    params: { password: "password", user: "user" },
+  },
+  executedCommand: {
+    type: STATE.EXECUTED_COMMAND,
+    message: "successful execution",
+  },
+  errorExecutingCommand: {
+    type: STATE.ERROR_EXECUTING_COMMAND,
+    message: "error executing",
+  },
+}

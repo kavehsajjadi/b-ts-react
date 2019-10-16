@@ -7,34 +7,26 @@ import {
   STATE,
 } from "lib/states"
 
-function isExecutingCommand(
-  state: ComponentState,
-): state is ExecutingCommandType {
-  return state.type === STATE.EXECUTING_COMMAND
-}
-
 export class ExecutingCommand extends React.Component<{
-  state: ComponentState
+  state: ExecutingCommandType
   setState: SetState
 }> {
   async componentDidMount() {
     const { setState, state } = this.props
-    if (isExecutingCommand(state)) {
-      const { command, params } = state
+    const { command, params } = state
 
-      try {
-        const message = await command[1](params)
+    try {
+      const message = await command[1](params)
 
-        setState({
-          type: STATE.EXECUTED_COMMAND,
-          message,
-        })
-      } catch (e) {
-        setState({
-          type: STATE.ERROR_EXECUTING_COMMAND,
-          message: e,
-        })
-      }
+      setState({
+        type: STATE.EXECUTED_COMMAND,
+        message,
+      })
+    } catch (e) {
+      setState({
+        type: STATE.ERROR_EXECUTING_COMMAND,
+        message: e,
+      })
     }
   }
 

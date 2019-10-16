@@ -6,6 +6,7 @@ import { ComponentState, SetState, STATE } from "lib/states"
 export class Input extends React.Component<{
   value: string
   onChange(e: React.ChangeEvent<HTMLInputElement>): void
+  placeholder?: string
   autoFocus?: boolean
 }> {
   inputRef = React.createRef<HTMLInputElement>()
@@ -17,14 +18,15 @@ export class Input extends React.Component<{
   }
 
   render() {
-    const { value, onChange } = this.props
+    const { onChange, placeholder, value } = this.props
     return (
       <input
         type="text"
         className="form-control"
         onChange={onChange}
-        value={value}
+        placeholder={placeholder}
         ref={this.inputRef}
+        value={value}
       />
     )
   }

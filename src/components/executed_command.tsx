@@ -1,30 +1,32 @@
 import * as React from "react"
-import { Command } from "lib/commands"
+import { Command, commands } from "lib/commands"
+import { limit } from "lib/limit"
+import { match } from "lib/match"
 import {
   ComponentState,
   ExecutedCommand as ExecutedCommandType,
   SetState,
   STATE,
 } from "lib/states"
-
-function isExecutedCommand(
-  state: ComponentState,
-): state is ExecutedCommandType {
-  return state.type === STATE.EXECUTED_COMMAND
-}
+import { Button } from "components/button"
 
 export class ExecutedCommand extends React.Component<{
-  state: ComponentState
+  state: ExecutedCommandType
   setState: SetState
 }> {
   render() {
-    const state = this.props.state
-
-    if (isExecutedCommand(state)) {
-      const { message } = state
-      return <div>{message}</div>
-    }
-
-    return null
+    const setEditing = () =>
+      this.props.setState({
+        type: STATE.EDITING_QUERY,
+        query: "",
+        commands: limit(match(""), 4),
+      })
+    return (
+      <div>
+        {this.props.state.message}
+        <hr />
+        <Button onClick={setEditing}>Done</Button>
+      </div>
+    )
   }
 }

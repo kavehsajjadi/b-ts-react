@@ -23,10 +23,10 @@ async function changeUsername() {
 }
 
 export const commands: Command[] = [
+  ["change password for user :user :password", handlePassword],
   ["change name", console.log],
   ["change username", changeUsername],
   ["change avatar", () => alert("upload new avatar")],
-  ["change password for user :user :password", handlePassword],
 ]
 
 function noop() {

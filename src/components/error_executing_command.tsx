@@ -1,30 +1,32 @@
 import * as React from "react"
-import { Command } from "lib/commands"
+import { Command, commands } from "lib/commands"
+import { limit } from "lib/limit"
+import { match } from "lib/match"
 import {
   ComponentState,
   ErrorExecutingCommand as ErrorExecutingCommandType,
   SetState,
   STATE,
 } from "lib/states"
-
-function isErrorExecutingCommand(
-  state: ComponentState,
-): state is ErrorExecutingCommandType {
-  return state.type === STATE.ERROR_EXECUTING_COMMAND
-}
+import { Button } from "components/button"
 
 export class ErrorExecutingCommand extends React.Component<{
-  state: ComponentState
+  state: ErrorExecutingCommandType
   setState: SetState
 }> {
   render() {
-    const state = this.props.state
-
-    if (isErrorExecutingCommand(state)) {
-      const { message } = state
-      return <div>Error: {message}</div>
-    }
-
-    return null
+    const setEditing = () =>
+      this.props.setState({
+        type: STATE.EDITING_QUERY,
+        query: "",
+        commands: limit(match(""), 4),
+      })
+    return (
+      <div>
+        {this.props.state.message}
+        <hr />
+        <Button onClick={setEditing}>Done</Button>
+      </div>
+    )
   }
 }
