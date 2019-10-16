@@ -32,7 +32,7 @@ export class ExecutingCommand extends React.Component<{
       } catch (e) {
         setState({
           type: STATE.ERROR_EXECUTING_COMMAND,
-          message: e.message,
+          message: e,
         })
       }
     }

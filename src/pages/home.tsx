@@ -7,6 +7,7 @@ import { Editing } from "components/editing"
 import { AddingArguments } from "components/adding_arguments"
 import { ExecutingCommand } from "components/executing_command"
 import { ExecutedCommand } from "components/executed_command"
+import { ErrorExecutingCommand } from "components/error_executing_command"
 
 const initialCommand: Command = ["", () => undefined]
 
@@ -35,8 +36,10 @@ export const Home = () => {
       return <ExecutingCommand state={state} setState={updateState} />
     case STATE.EXECUTED_COMMAND:
       return <ExecutedCommand state={state} setState={updateState} />
+    case STATE.ERROR_EXECUTING_COMMAND:
+      return <ErrorExecutingCommand state={state} setState={updateState} />
     default:
-      throw new Error(`Define a case for state: ${state.type}`)
+      throw new Error(`Define a case for state: ${state}`)
   }
 }
 
