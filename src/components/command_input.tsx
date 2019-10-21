@@ -18,10 +18,7 @@ export const CommandInput = ({
   initialCommand?: Command
   initialQuery?: string
 }) => {
-  const [command, setCommand] = React.useState(initialCommand)
-  const [query, setQuery] = React.useState<string>(initialQuery)
   const [state, setState] = React.useState<ComponentState>(initialState)
-  const parts = getArgs(command)
   const updateState = (state: ComponentState) => setState(state)
 
   switch (state.type) {

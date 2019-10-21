@@ -28,11 +28,3 @@ export const commands: Command[] = [
   ["change username", changeUsername],
   ["change avatar", () => alert("upload new avatar")],
 ]
-
-function noop() {
-  return undefined
-}
-
-for (let i = 0; i < 10000; i++) {
-  commands.push([`a${i}`, noop])
-}

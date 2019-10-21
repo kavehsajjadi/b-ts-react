@@ -14,7 +14,7 @@
   "dependencies": {
     "auth0-js": "^9.10.0",
     "classnames": "^2.2.6",
-    "elasticlunr": "^0.9.5",
+    "lunr": "^2.3.7",
     "moment": "^2.24.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
