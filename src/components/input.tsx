@@ -11,6 +11,12 @@ export class Input extends React.Component<{
 }> {
   inputRef = React.createRef<HTMLInputElement>()
 
+  focus() {
+    if (this.inputRef != null) {
+      this.inputRef.current.focus()
+    }
+  }
+
   componentDidMount() {
     if (this.props.autoFocus && this.inputRef.current) {
       this.inputRef.current.focus()

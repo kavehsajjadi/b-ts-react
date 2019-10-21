@@ -6,26 +6,32 @@ import { CommandInput } from "components/command_input"
 export const Home = () => {
   return (
     <div>
-      <Card>
-        <Title>Editing</Title>
-        <CommandInput initialState={states.editing} />
-      </Card>
-      <Card>
-        <Title>Adding Arguments</Title>
-        <CommandInput initialState={states.addingArguments} />
-      </Card>
-      <Card>
-        <Title>Executing Command</Title>
-        <CommandInput initialState={states.executingCommand} />
-      </Card>
-      <Card>
-        <Title>Executed Command</Title>
-        <CommandInput initialState={states.executedCommand} />
-      </Card>
-      <Card>
-        <Title>Error Executing Command</Title>
-        <CommandInput initialState={states.errorExecutingCommand} />
-      </Card>
+      <div style={{ width: "250px" }}>
+        <CommandInput />
+      </div>
+      {/*<>
+        <Card>
+          <Title>Editing</Title>
+          <CommandInput initialState={states.editing} />
+        </Card>
+        <Card>
+          <Title>Adding Arguments</Title>
+          <CommandInput initialState={states.addingArguments} />
+        </Card>
+        <Card>
+          <Title>Executing Command</Title>
+          <CommandInput initialState={states.executingCommand} />
+        </Card>
+        <Card>
+          <Title>Executed Command</Title>
+          <CommandInput initialState={states.executedCommand} />
+        </Card>
+        <Card>
+          <Title>Error Executing Command</Title>
+          <CommandInput initialState={states.errorExecutingCommand} />
+        </Card>
+      </>
+      )*/}
     </div>
   )
 }

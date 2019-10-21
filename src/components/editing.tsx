@@ -38,7 +38,7 @@ export const Editing = ({
         placeholder="What would you like to do?"
         onChange={handleQueryUpdate}
       />
-      <Dropdown commands={state.commands} onClick={handleCommandClick} />
+      {state.commands.length > 0 && <Dropdown commands={state.commands} onClick={handleCommandClick} />}
     </>
   )
 }

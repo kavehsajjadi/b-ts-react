@@ -5,56 +5,96 @@ import { ComponentState, SetState, STATE } from "lib/states"
 import { Button } from "components/button"
 import { Input } from "components/input"
 
-export const AddingArguments = ({
-  state,
-  setState,
-}: {
+type ArgumentRef = React.RefObject<ArgumentInput>
+
+export class AddingArguments extends React.Component<{
   state: ComponentState
   setState: SetState
-}) => {
-  if (state.type !== STATE.ADDING_ARGUMENTS) {
-    return null
+}> {
+  focus = 0
+  argumentRefs: ArgumentRef[] = []
+
+  addRef = (index: number) => {
+    const ref: ArgumentRef = React.createRef<ArgumentInput>()
+    if (this.argumentRefs[index] == null) {
+      this.argumentRefs[index] = ref
+    }
+    return ref
   }
 
-  const { type, command, params } = state
-  const keys = Object.keys(params)
-  const handleArgUpdate = key => e => {
-    const p = { ...params, [key]: e.target.value }
-    setState({ type: STATE.ADDING_ARGUMENTS, command, params: p })
-  }
-  const handleQueryChange = e => {
-    setState({
-      type: STATE.EDITING_QUERY,
-      query: e.target.value,
-      commands: limit(match(e.target.value), 4),
-    })
-  }
-  const setExecuting = () => {
-    setState({ type: STATE.EXECUTING_COMMAND, command, params })
+  clickHandler = () => {
+      // on click, based on count do a focus
   }
 
-  return (
-    <>
-      <Input autoFocus={true} value={command[0]} onChange={handleQueryChange} />
-      {keys.map(key => (
-        <ArgumentInput
-          key={key}
-          value={params[key]}
-          label={key}
-          onChange={handleArgUpdate(key)}
-        />
-      ))}
-      <Button onClick={setExecuting}>Evaluate</Button>
-    </>
-  )
+  render() {
+    const { state, setState } = this.props
+
+    if (state.type !== STATE.ADDING_ARGUMENTS) {
+      return null
+    }
+
+    const { type, command, params } = state
+    const keys = Object.keys(params)
+    const handleArgUpdate = key => e => {
+      const p = { ...params, [key]: e.target.value }
+      setState({ type: STATE.ADDING_ARGUMENTS, command, params: p })
+    }
+    const handleQueryChange = e => {
+      setState({
+        type: STATE.EDITING_QUERY,
+        query: e.target.value,
+        commands: limit(match(e.target.value), 4),
+      })
+    }
+    const setExecuting = () => {
+      setState({ type: STATE.EXECUTING_COMMAND, command, params })
+    }
+
+    return (
+      <>
+        <Input value={command[0]} onChange={handleQueryChange} />
+        {keys.map((key, index) => (
+          <ArgumentInput
+            ref={this.addRef(index)}
+            key={key}
+            value={params[key]}
+            label={key}
+            onChange={handleArgUpdate(key)}
+            autoFocus={index === 0}
+          />
+        ))}
+        <Button onClick={setExecuting}>Evaluate</Button>
+      </>
+    )
+  }
 }
 
-const ArgumentInput = ({ label, onChange, value }) => (
-  <div key={label}>
-    <Input
-      value={value}
-      placeholder={`Enter a value for ${label}`}
-      onChange={onChange}
-    />
-  </div>
-)
+type ArgumentInputProps = {
+  autoFocus?: boolean
+  label: string
+  onChange(e: React.ChangeEvent<HTMLInputElement>): void
+  value: string
+}
+class ArgumentInput extends React.Component<ArgumentInputProps> {
+  inputRef = React.createRef<Input>()
+
+  focus() {
+    if (this.inputRef != null) {
+      this.inputRef.current.focus()
+    }
+  }
+
+  render() {
+    const { autoFocus, label, onChange, value } = this.props
+    return (
+      <div key={label}>
+        <Input
+          autoFocus={autoFocus}
+          onChange={onChange}
+          placeholder={`Enter a value for ${label}`}
+          value={value}
+        />
+      </div>
+    )
+  }
+}

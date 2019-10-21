@@ -25,7 +25,9 @@ export class ExecutedCommand extends React.Component<{
       <div>
         {this.props.state.message}
         <hr />
-        <Button onClick={setEditing}>Done</Button>
+        <Button autoFocus={true} onClick={setEditing}>
+          Done
+        </Button>
       </div>
     )
   }
