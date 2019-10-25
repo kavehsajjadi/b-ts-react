@@ -2,14 +2,13 @@ import * as React from "react"
 import * as ReactDOM from "react-dom"
 import { Router, Route, Switch } from "react-router-dom"
 import { routes } from "config/routes"
-import { Layout } from "pages/layout"
-import { history } from "services/history"
+import { history } from "config/history"
 import "./main.css"
 
-class Main extends React.Component<{ user: {} | undefined }> {
+class Main extends React.Component<{}> {
   render() {
     return (
-      <Layout>
+      <>
         {routes.map(route => (
           <Route
             key={route.path}
@@ -18,7 +17,7 @@ class Main extends React.Component<{ user: {} | undefined }> {
             component={route.component}
           />
         ))}
-      </Layout>
+      </>
     )
   }
 }
